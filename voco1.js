@@ -247,22 +247,22 @@ if (downloadBtn) {
       console.warn('[download] could not resolve voice lang, defaulting to en', e);
     }
 
-    // build proxy URL and log it
-   // dev proxy (local)
+ // robust proxy selection + correct /tts path (paste this into voco1.js)
 const LOCAL_PROXY = 'http://localhost:5001/tts';
+const PROD_PROXY = 'https://gtts-proxy.onrender.com/tts'; // use your Render URL + /tts
 
-// production proxy (Render URL - leave blank for now)
-const PROD_PROXY = 'https://gtts-proxy.onrender.com';
+// treat localhost, 127.0.0.1 and empty (file:// dev) as local
+const isLocalHost = ['localhost', '127.0.0.1'].includes(location.hostname) || location.hostname === '';
+const proxyBase = isLocalHost ? LOCAL_PROXY : PROD_PROXY;
 
-// auto-select correct proxy
-const proxyBase = location.hostname.includes('localhost')
-  ? LOCAL_PROXY
-  : PROD_PROXY;
-
-// final URL used for download
+// build final URL for the current text/lang
 const proxyUrl = `${proxyBase}?q=${encodeURIComponent(text)}&tl=${encodeURIComponent(lang)}`;
 
-    console.log('[download] fetching proxy URL ->', proxyUrl);
+// debug log (remove after verifying)
+console.log('[download] hostname=', location.hostname, 'isLocalHost=', isLocalHost);
+console.log('[download] proxyBase=', proxyBase);
+console.log('[download] proxyUrl=', proxyUrl);
+
 
     // basic UI lock
     downloadBtn.disabled = true;
