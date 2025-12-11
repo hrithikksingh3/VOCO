@@ -252,7 +252,7 @@ if (downloadBtn) {
 const LOCAL_PROXY = 'http://localhost:5001/tts';
 
 // production proxy (Render URL - leave blank for now)
-const PROD_PROXY = 'https://YOUR-RENDER-PROXY-URL.onrender.com/tts';
+const PROD_PROXY = 'https://gtts-proxy.onrender.com';
 
 // auto-select correct proxy
 const proxyBase = location.hostname.includes('localhost')
