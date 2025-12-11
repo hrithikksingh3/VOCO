@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VOCO by Codersvoice</title>
+  <!-- VOCO - by codersvoice free, runs in browser -->
+
+  <link rel="stylesheet" href="voco1.css">
+  <script src="https://cdn.jsdelivr.net/gh/robertgit/meSpeak/mespeak.min.js"></script>
+  
+</head>
+
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div>
+        <h1><span style="font-size: 120%;">VOCO</span> - by Codersvoice</h1>
+        <p class="lead">Free TTS Type/Paste any text and make it spoken instantly. No API keys, no cost. Works offline
+          in modern browsers.</p>
+      </div>
+      <div class="split">
+        <div class="tag">Free</div>
+        <div class="tag">No signup</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <div class="card">
+          <textarea id="txt"
+            placeholder="Type anything... e.g. 'I am BatMan'">Hello there , I am Voco by codersvoice.</textarea>
+          <div class="controls">
+            <div class="control" style="flex:1">
+              <label for="voices">Select Voice</label>
+              <select id="voices"></select>
+            </div>
+            <div class="control">
+              <label for="rate">Rate: <span id="rateVal">1</span></label>
+              <input id="rate" type="range" min="0.5" max="2" step="0.1" value="1" />
+            </div>
+            <div class="control">
+              <label for="pitch">Pitch: <span id="pitchVal">1</span></label>
+              <input id="pitch" type="range" min="0.5" max="2" step="0.1" value="1" />
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button id="speak" class="btn">🔊 Speak</button>
+            <button id="stop" class="small-btn">⏹ Stop</button>
+            <button id="downloadAudio" class="small-btn">⬇ Down-Load</button>
+            <button id="save" class="small-btn">💾 Save</button>
+            <button id="share" class="small-btn">🔗 Share</button>
+            <button id="clear" class="small-btn">🧹 Clear History</button>
+
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="muted">Phonetics: <span id="phonetic">—</span></div>
+            <div class="muted">Syllables: <span id="syll">—</span></div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <strong>History (local)</strong>
+            <div class="muted">Saved phrases are stored in your browser</div>
+          </div>
+          <ul id="history" class="history"></ul>
+        </div>
+      </main>
+
+      <aside>
+        <div class="card">
+
+          <hr style="opacity:0.06;margin:12px 0" />
+
+          <div style="display:flex;gap:10px;">
+            <button id="export" class="btn">⬇ Export</button>
+            <button id="import" class="btn">⬆ Import</button>
+            <input id="importfile" type="file" accept="application/json" style="display:none" />
+          </div>
+
+        </div>
+        <div class="card">
+          <div style="height:12px"></div>
+          <div style="margin-top:12px">
+            <label class="muted">Theme</label>
+            <div style="display:flex;gap:8px;margin-top:6px">
+              <button id="themeLight" class="small-btn">Light</button>
+              <button id="themeDark" class="small-btn">Dark</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+        <div class="card muted">
+          Tip: Press <kbd>Ctrl/⌘ + Enter</kbd> to speak quickly.
+        </div>
+
+        <div style="height:12px"></div>
+        <div class="card muted">
+          <h3 style="margin-top:0">Extras</h3>
+          <p class="muted">Features included in this free build:</p>
+          <ul class="muted">
+            <li>Multiple voices & languages (browser-dependent)</li>
+            <li>Syllable split & approximate phonetic rendering</li>
+            <li>Share via short URL (encoded in query string)</li>
+            <li>Export / import your history</li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer>
+      Made with 💗 — &copy;Codersvoice.2025
+    </footer>
+  </div>
+
+  <!-- Modal used only as fallback when clipboard is blocked -->
+  <div id="copyModal" class="modal" style="display:none">
+    <div class="modal-card">
+      <div style="font-weight:700;margin-bottom:8px">Copy link</div>
+      <div style="font-size:13px;color:#334155">Your environment blocked programmatic clipboard access. Use the field
+        below to copy the share link manually.</div>
+      <input id="modalInput" readonly />
+      <div class="modal-actions">
+        <button id="modalCopy" class="small-btn">Copy</button>
+        <button id="modalClose" class="small-btn">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/gh/robertgit/meSpeak/mespeak.min.js"></script>
+<script src="https://unpkg.com/lamejs@1.2.0/lame.min.js"></script>
+<script src="voco1.js"></script>
+</body>
+
+
+</html>
