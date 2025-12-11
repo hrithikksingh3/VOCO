@@ -467,3 +467,13 @@ footer {
 .light .modal-card {
     box-shadow: 0 6px 18px rgba(26, 28, 34, 0.04) !important;
 }
+
+.fund-link {
+  color: white;        /* same color as normal text */
+  text-decoration: none; /* remove underline */
+  font-weight: 500;
+}
+
+.fund-link:hover {
+  text-decoration: underline; /* clean hover effect */
+}
