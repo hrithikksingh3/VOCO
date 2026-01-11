@@ -10,7 +10,7 @@ It runs directly in the browser using **meSpeak.js** and adds extra power featur
 
 ## **Live Demo**
 
-🔗 **Check out the live version**: [Primemax](https://voco.onrender.com)  
+🔗 **Check out the live version**: [VOCO](https://voco.onrender.com)  
 
 ---
 
